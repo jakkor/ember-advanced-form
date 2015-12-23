@@ -1,4 +1,4 @@
-# Ember-advanced-forms
+# Ember-advanced-form
 
 This addon is for gathering of a set of components that can be used in forms.
 
@@ -13,7 +13,7 @@ For example {{advanced-forms/integer min=3 max=12 value=5}} will create an input
 
 * Integer field
 
-{{advanced-forms/integer min=3 max=12 value=5}}
+{{advanced-form/integer min=3 max=12 value=5}}
 
 Integer field creates an input element with two buttons: "+" and "-".
 
