@@ -1,0 +1,62 @@
+.advanced-forms {
+  margin: 2px;
+}
+
+/***********
+  Input field with plus and minus buttons
+***********/
+
+.advanced-forms.plusminus {
+  position: relative;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  border: 1px solid #000;
+}
+
+.advanced-forms.plusminus input {
+  border: 0;
+  width: calc(100% - 27px);
+  height: 25px;
+  line-height: 25px;
+  margin: 0 25px 0 2px;
+  padding: 0;
+  overflow: hidden;
+  text-indent: 5px;
+  background-color: #fff;
+}
+
+.advanced-forms.plusminus button {
+  position: absolute;
+  width: 25px;
+  height: 50%;
+  line-height: 50%;
+  background-color: #fff;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  background: none;
+  cursor: pointer;
+  right: 5px;
+}
+
+.advanced-forms.plusminus button.plus {
+  border-left: 1px solid #000;
+  border-bottom: 1px solid #000;
+  top: 1px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 7.5px 10px 7.5px;
+  border-color: transparent transparent #000000 transparent;
+}
+
+.advanced-forms.plusminus button.minus {
+  border-left: 1px solid #000;
+  top: calc(50% + 1px);
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 10px 7.5px 0 7.5px;
+  border-color: #000000 transparent transparent transparent;
+}
