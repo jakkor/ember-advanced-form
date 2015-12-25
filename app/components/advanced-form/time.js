@@ -1,3 +1,3 @@
-import Time from 'ember-advanced-forms/components/time';
+import Time from 'ember-advanced-form/components/time';
 
 export default Time;

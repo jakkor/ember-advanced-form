@@ -2,7 +2,7 @@
 'use strict';
 
 module.exports = {
-  name: 'ember-advanced-forms',
+  name: 'ember-advanced-form',
 
   included: function(app) {
     this._super.included(app);

@@ -1,3 +1,3 @@
-import Integer from 'ember-advanced-forms/components/integer';
+import Integer from 'ember-advanced-form/components/integer';
 
 export default Integer;
