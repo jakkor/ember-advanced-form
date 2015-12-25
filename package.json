@@ -1,6 +1,6 @@
 {
   "name": "ember-advanced-form",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "This addon is for gathering of a set of components that can be used in forms.",
   "directories": {
     "doc": "doc",
