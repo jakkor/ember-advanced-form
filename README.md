@@ -7,11 +7,11 @@ For example {{advanced-forms/integer min=3 max=12 value=5}} will create an input
 
 ## Installation
 
-* `ember install ember-advanced-forms`
+* `ember install ember-advanced-form`
 
 ## Usage
 
-###### Integer Component  
+__Integer Component__  
 {{advanced-form/integer min=3 max=12 value=5}}
 
 Integer component creates an input element with two buttons: "+" and "-".
@@ -20,14 +20,14 @@ value - an integer value that will be changed by clicking the buttons
 min - integer minimum value allowed in this input
 max - integer maximum value allowed in this input
 
-To overwrite basic styles in your application stylesheet please use:
-.advanced-forms.integer - form main div
-.advanced-forms.integer button - for both buttons
-.advanced-forms.integer button.plus - for plus button
-.advanced-forms.integer button.minus - for minus button
-.advanced-forms.integer input - for the input field in the middle
+To overwrite basic styles in your application stylesheet please use:  
+.advanced-forms.integer - form main div  
+.advanced-forms.integer button - for both buttons  
+.advanced-forms.integer button.plus - for plus button  
+.advanced-forms.integer button.minus - for minus button  
+.advanced-forms.integer input - for the input field in the middle  
 
-###### Time Component  
+__Time Component__  
 {{advanced-form/time value="10:58:55" toUpdate="ss"}}
 
 Time component creates an input field with time value. There are also two buttons: "+" and "-" to update time.
