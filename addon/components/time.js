@@ -21,7 +21,7 @@ export default Ember.Component.extend(InputMixin, {
   tagName: 'div',
   layout: layout,
   attributeBindigns: ['value'],
-  classNames: ['advanced-forms', 'time', 'plusminus'],
+  classNames: ['advanced-form', 'time', 'plusminus'],
   time: null,
 
   regexpTest: null,

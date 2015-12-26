@@ -22,7 +22,7 @@ export default Ember.Component.extend(InputMixin, {
   tagName: 'div',
   layout: layout,
   attributeBindigns: ['value'],
-  classNames: ['advanced-forms', 'integer', 'plusminus'],
+  classNames: ['advanced-form', 'integer', 'plusminus'],
 
   // Value observer. Run check value if value has been changed in any way
   valueObserver: function() {
