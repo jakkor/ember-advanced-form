@@ -1,0 +1,129 @@
+.advanced-form {
+  margin: 2px;
+}
+
+/***********
+* Input field with plus and minus buttons
+***********/
+
+.advanced-form.plusminus {
+  position: relative;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  color: #fff;
+  background-color: #000;
+}
+
+.advanced-form.plusminus input {
+  border: 0;
+  width: calc(100% - 27px);
+  height: 25px;
+  line-height: 25px;
+  margin: 0 25px 0 2px;
+  padding: 0;
+  overflow: hidden;
+  text-indent: 5px;
+  background-color: #000;
+  color: #fff;
+}
+
+.advanced-form.plusminus button {
+  position: absolute;
+  width: 25px;
+  height: 50%;
+  line-height: 50%;
+  background-color: #000;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  background: none;
+  cursor: pointer;
+  right: 5px;
+}
+
+.advanced-form.plusminus button.plus {
+  border-left: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  top: 1px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 7.5px 10px 7.5px;
+  border-color: transparent transparent #fff transparent;
+}
+
+.advanced-form.plusminus button.minus {
+  border-left: 1px solid #ccc;
+  top: calc(50% + 1px);
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 10px 7.5px 0 7.5px;
+  border-color: #fff transparent transparent transparent;
+}
+
+/****************
+* Select
+*****************/
+.advanced-form.select {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.advanced-form.select.active {
+  -webkit-border-bottom-left-radius: 0px;
+  -moz-border-bottom-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  -webkit-border-bottom-right-radius: 0px;
+  -moz-border-bottom-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.advanced-form.select ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.advanced-form.select ul li {
+  display: block;
+  position: relative;
+  height: 25px;
+  line-height: 25px;
+  margin: 0;
+  cursor: pointer;
+}
+
+.advanced-form.select ul li a{
+  display: block;
+  padding: 0 5px;
+}
+
+.advanced-form.select ul li ul {
+  position: absolute;
+  top: 25px;
+  z-index: 999999;
+  width: calc(100% + 2px);
+  left: -1000000px;
+}
+
+.advanced-form.select ul li ul.active {
+  left: -1px;
+}
+
+.advanced-form.select ul li ul li {
+  border: 1px solid #000;
+  border-top: 0;
+}
+
+.advanced-form.select ul:before,
+.select ul:after {
+  content: " "; /* 1 */
+  display: table; /* 2 */
+}
+
+.advanced-form.select ul:after { clear: both; }

@@ -39,6 +39,6 @@ module.exports = {
    * @return {array} templates list
    */
   getTemplateList: function() {
-    return [];
+    return ["dark"];
   }
 };
