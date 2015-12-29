@@ -72,6 +72,8 @@
   -moz-border-radius: 5px;
   border-radius: 5px;
   border: 1px solid #ccc;
+  background-color: #000;
+  color: #fff;
 }
 
 .advanced-form.select.active {
@@ -96,6 +98,8 @@
   line-height: 25px;
   margin: 0;
   cursor: pointer;
+  background-color: #000;
+  color: #fff;
 }
 
 .advanced-form.select ul li a{

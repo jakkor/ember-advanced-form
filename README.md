@@ -9,36 +9,71 @@ For example {{advanced-forms/integer min=3 max=12 value=5}} will create an input
 
 * `ember install ember-advanced-form`
 
-## Usage
+## Run Examples
 
-__Integer Component__  
+To see some examples please run the dummy app:
+
+* `ember serve`
+
+## Available Components
+
+* [Integer Component](#integer_component)
+* [Time Component](#time_component)
+* [Select Component](#select_component)
+
+## Usage
+  
+<a name="integer_component"></a>__Integer Component__
 {{advanced-form/integer min=3 max=12 value=5}}
 
 Integer component creates an input element with two buttons: "+" and "-".
 
-value - an integer value that will be changed by clicking the buttons
-min - integer minimum value allowed in this input
-max - integer maximum value allowed in this input
+Required attributes:
+* value - an integer value that will be changed by clicking the buttons
+* min - integer minimum value allowed in this input
+* max - integer maximum value allowed in this input
 
 To overwrite basic styles in your application stylesheet please use:  
-.advanced-forms.integer - form main div  
-.advanced-forms.integer button - for both buttons  
-.advanced-forms.integer button.plus - for plus button  
-.advanced-forms.integer button.minus - for minus button  
-.advanced-forms.integer input - for the input field in the middle  
+* .advanced-forms.integer - form main div,  
+* .advanced-forms.integer button - for both buttons,  
+* .advanced-forms.integer button.plus - for plus button,  
+* .advanced-forms.integer button.minus - for minus button,  
+* .advanced-forms.integer input - for the input field in the middle.  
 
-__Time Component__  
+<a name="time_component"></a> __Time Component__
 {{advanced-form/time value="10:58:55" toUpdate="ss"}}
 
 Time component creates an input field with time value. There are also two buttons: "+" and "-" to update time.
 
-value - a string value that will be changed by clicking the buttons  
-toUpdate - which number should be updated with buttons, default is "ss" - seconds  
-format - what should be visible. Default is: "hh:mm:ss". hh - is an hour in 24h format, mm - minutes, ss -seconds
+Required attributes:
+* value - a string value that will be changed by clicking the buttons,  
+* toUpdate - which number should be updated with buttons, default is "ss" - seconds,  
+* format - what should be visible. Default is: "hh:mm:ss". hh - is an hour in 24h format, mm - minutes, ss -seconds.
 
 To overwrite basic styles in your application stylesheet please use:  
-.advanced-forms.time - form main div  
-.advanced-forms.time button - for both buttons  
-.advanced-forms.time button.plus - for plus button  
-.advanced-forms.time button.minus - for minus button  
-.advanced-forms.time input - for the input field in the middle  
+* .advanced-forms.time - form main div,  
+* .advanced-forms.time button - for both buttons,  
+* .advanced-forms.time button.plus - for plus button,  
+* .advanced-forms.time button.minus - for minus button,  
+* .advanced-forms.time input - for the input field in the middle.  
+
+<a name="select_component"></a>__Select Component__
+{{advanced-form/select list=countryList mapLabel="name" model=user modelProperty="country"}}
+
+Select component that will display a drop down field with list of elements. It requires a model with a property that we will update.  
+
+Required attributes:  
+* list - list of elements to chose from,  
+* model - Model with selected element or where the selected element has to be set,  
+* modelProperty - model property name that holds selected element,  
+
+Optional attributes:  
+* malLabel - name of label property that should be used. Default is "label",  
+* autocommit - If set to true it will run model.save() after choosing new selected element. Default is false.  
+* placeHolder - Placeholder visible when nothing is selected. Default is '--------',
+
+To overwrite basic styles in your application stylesheet please use:  
+* .advanced-forms.select - form main div,  
+* .advanced-forms.select > ul > li > a - for selected element,  
+* .advanced-forms.select > ul > li > ul > li - for list elements,  
+

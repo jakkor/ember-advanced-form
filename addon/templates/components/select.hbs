@@ -1,0 +1,10 @@
+<ul>
+  <li>
+    {{#if selectedLabel}}
+      <a>{{selectedLabel}}</a>
+    {{else}}
+      <a>{{placeHolder}}</a>
+    {{/if}}
+    {{advanced-form/select/list list=list mapID=mapID mapLabel=mapLabel}}
+  </li>
+</ul>
