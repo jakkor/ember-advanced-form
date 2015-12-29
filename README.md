@@ -15,6 +15,24 @@ To see some examples please run the dummy app:
 
 * `ember serve`
 
+
+## Templates
+
+There are two color templates, but for now not ready for production.
+
+To change default template update ember-cli-build.js file in your application:
+
+```javascript
+module.exports = function(defaults) {
+  var app = new EmberAddon(defaults, {
+    advancedForm: {
+      template: "dark",
+    }
+  });
+  return app.toTree();
+};
+```
+
 ## Available Components
 
 * [Integer Component](#integer_component)
