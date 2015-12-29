@@ -16,7 +16,7 @@ To see some examples please run the dummy app:
 * `ember serve`
 
 
-## Templates
+## Templates  
 
 There are two color templates, but for now not ready for production.
 
@@ -39,9 +39,10 @@ module.exports = function(defaults) {
 * [Time Component](#time_component)
 * [Select Component](#select_component)
 
-## Usage
-  
-<a name="integer_component"></a>__Integer Component__
+## Usage  
+
+<a name="integer_component"></a>__Integer Component__  
+
 {{advanced-form/integer min=3 max=12 value=5}}
 
 Integer component creates an input element with two buttons: "+" and "-".
@@ -58,7 +59,8 @@ To overwrite basic styles in your application stylesheet please use:
 * .advanced-forms.integer button.minus - for minus button,  
 * .advanced-forms.integer input - for the input field in the middle.  
 
-<a name="time_component"></a> __Time Component__
+<a name="time_component"></a> __Time Component__  
+
 {{advanced-form/time value="10:58:55" toUpdate="ss"}}
 
 Time component creates an input field with time value. There are also two buttons: "+" and "-" to update time.
@@ -75,7 +77,8 @@ To overwrite basic styles in your application stylesheet please use:
 * .advanced-forms.time button.minus - for minus button,  
 * .advanced-forms.time input - for the input field in the middle.  
 
-<a name="select_component"></a>__Select Component__
+<a name="select_component"></a>__Select Component__  
+
 {{advanced-form/select list=countryList mapLabel="name" model=user modelProperty="country"}}
 
 Select component that will display a drop down field with list of elements. It requires a model with a property that we will update.  
