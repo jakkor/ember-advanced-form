@@ -54,7 +54,11 @@ export default Ember.Component.extend(InputMixin, {
 
     // Convert value to string again and compare with original string to check if need to be updated.
     var valueString = value.toString();
-    if (valueString !== this.get('value')) {
+    var setValue = this.get('value');
+    if (typeof setValue !== "undefined" && setValue !== null) {
+      setValue = setValue.toString();
+    }
+    if (valueString !== setValue) {
       this.set('value', valueString);
     }
   },
