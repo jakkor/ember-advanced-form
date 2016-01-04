@@ -7,7 +7,7 @@ module.exports = {
 
   included: function(app) {
     var template = this.getTemplate(app);
-    app.import('app/styles/' + template + '.css');
+    app.import('vendor/advancedForm/' + template + '.css');
     this._super.included.call(this, app);
   },
 
