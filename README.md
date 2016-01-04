@@ -52,6 +52,9 @@ Required attributes:
 * min - integer minimum value allowed in this input
 * max - integer maximum value allowed in this input
 
+Optional attributes:  
+* onChange - action that is send by sendAction when value changes. It sends also the new value to this action.
+
 To overwrite basic styles in your application stylesheet please use:  
 * .advanced-forms.integer - form main div,  
 * .advanced-forms.integer button - for both buttons,  
@@ -63,7 +66,7 @@ To overwrite basic styles in your application stylesheet please use:
 
 {{advanced-form/time value="10:58:55" toUpdate="ss"}}
 
-Time component creates an input field with time value. There are also two buttons: "+" and "-" to update time.
+Time component creates an input field with time value. There are also two buttons: "+" and "-" to update time.  
 
 Required attributes:
 * value - a string value that will be changed by clicking the buttons,  
@@ -86,12 +89,12 @@ Select component that will display a drop down field with list of elements. It r
 Required attributes:  
 * list - list of elements to chose from,  
 * model - Model with selected element or where the selected element has to be set,  
-* modelProperty - model property name that holds selected element,  
+* modelProperty - model property name that holds selected element.  
 
 Optional attributes:  
 * malLabel - name of label property that should be used. Default is "label",  
-* autocommit - If set to true it will run model.save() after choosing new selected element. Default is false.  
-* placeHolder - Placeholder visible when nothing is selected. Default is '--------',
+* autocommit - If set to true it will run model.save() after choosing new selected element. Default is false,  
+* placeHolder - Placeholder visible when nothing is selected. Default is '--------'.
 
 To overwrite basic styles in your application stylesheet please use:  
 * .advanced-forms.select - form main div,  

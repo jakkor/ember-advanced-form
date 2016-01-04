@@ -16,6 +16,9 @@ export default Ember.Component.extend(InputMixin, {
   // Max value. Should be null if there is no max
   max: null,
 
+  // On change action uses sendAction to send value after it has been updated by user or by checkValue method
+  onChange: null,
+
   /**************
   /* Private stuff
   /**************/
@@ -60,6 +63,9 @@ export default Ember.Component.extend(InputMixin, {
     }
     if (valueString !== setValue) {
       this.set('value', valueString);
+      if (this.get('onChange') !== null) {
+        this.sendAction('onChange', valueString);
+      }
     }
   },
 
