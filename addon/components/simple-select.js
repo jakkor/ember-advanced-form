@@ -18,6 +18,9 @@ export default Ember.Component.extend({
   // Array of object for the drop down field
   list: [],
 
+  // On change action uses sendAction to send value after it has been updated by user or by checkValue method
+  onChange: null,
+
   /**************
   /* Private stuff
   /**************/
@@ -45,6 +48,9 @@ export default Ember.Component.extend({
      */
     selectedChanged: function(value){
       this.set('selectedValue', value);
+      if (this.get('onChange') !== null) {
+        this.sendAction('onChange', value);
+      }
     }
   }
 
