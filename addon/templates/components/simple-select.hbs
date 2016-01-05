@@ -1,0 +1,10 @@
+<ul>
+  <li>
+    {{#if selectedValue}}
+      <a>{{selectedValue}}</a>
+    {{else}}
+      <a>{{placeHolder}}</a>
+    {{/if}}
+    {{advanced-form/simple-select/list list=list}}
+  </li>
+</ul>

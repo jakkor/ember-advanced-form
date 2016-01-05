@@ -4,6 +4,7 @@
   {{advanced-form/integer min="5" value="10" max="20"}}
   {{advanced-form/time value="10:58:55" toUpdate="ss"}}
   {{advanced-form/select list=model.countries mapLabel="name" mapID="ID" model=model.user modelProperty="country"}}
+  {{advanced-form/simple-select list=countryList selectedValue="Germany"}}
 </div>
 
 {{outlet}}
