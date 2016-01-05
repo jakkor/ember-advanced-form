@@ -106,10 +106,10 @@ To overwrite basic styles in your application stylesheet please use:
 
 {{advanced-form/simple-select list=countryList selectedValue="Poland"}}  
 
-Similar to * [Select Component](#select_component). The main difference is that instead of model and objects we can use simple values list.
+Similar to [Select Component](#select_component). The main difference is that instead of model and objects we can use simple values list.
 
 Required attributes:  
-* list - list of elements to chose from.  
+* list - list of values to chose from.  
 
 Optional attributes:  
 * selectedValue - Selected value.  
