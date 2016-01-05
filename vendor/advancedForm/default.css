@@ -101,8 +101,9 @@
 }
 
 .advanced-form.select ul li ul {
+  background-color: #fff;
   position: absolute;
-  top: 25px;
+  top: 26px;
   z-index: 999999;
   width: calc(100% + 2px);
   left: -1000000px;

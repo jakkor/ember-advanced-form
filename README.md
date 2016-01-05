@@ -38,6 +38,7 @@ module.exports = function(defaults) {
 * [Integer Component](#integer_component)
 * [Time Component](#time_component)
 * [Select Component](#select_component)
+* [Simple Select Component](#simple_select_component)
 
 ## Usage  
 
@@ -101,3 +102,16 @@ To overwrite basic styles in your application stylesheet please use:
 * .advanced-forms.select > ul > li > a - for selected element,  
 * .advanced-forms.select > ul > li > ul > li - for list elements,  
 
+<a name="simple_select_component"></a>__Simple Select Component__  
+
+{{advanced-form/simple-select list=countryList selectedValue="Poland"}}  
+
+Similar to [Select Component](#select_component). The main difference is that instead of model and objects we can use simple values list.
+
+Required attributes:  
+* list - list of values to chose from.  
+
+Optional attributes:  
+* selectedValue - Selected value.  
+
+Styles overwrites works the same way as for [Select Component](#select_component). There is only additional "simple-select" class added to the component if we would want to change the styles only for this.
