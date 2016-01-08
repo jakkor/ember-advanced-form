@@ -13,7 +13,7 @@ export default Ember.Component.extend(InputMixin, {
 
   format: "hh:mm:ss",
 
-  toUpdate: "hh",
+  toUpdate: null,
 
   /**************
   /* Private stuff
@@ -23,6 +23,7 @@ export default Ember.Component.extend(InputMixin, {
   attributeBindigns: ['value'],
   classNames: ['advanced-form', 'time', 'plusminus'],
   time: null,
+  _toUpdate: null,
 
   regexpTest: null,
   regexpMatch: null,
@@ -35,6 +36,14 @@ export default Ember.Component.extend(InputMixin, {
     this.updateFormatData(defaultParts);
     this._super();
     this.prepareParts();
+    // Set first part as default to update key
+    var partsArray = Object.keys(this.get('parts'));
+    this.set('_toUpdate', partsArray[partsArray.length - 1]);
+
+    // if toUpdate value was there use it as update key instead of the default one
+    if (this.get('toUpdate') !== null) {
+      this.set('_toUpdate', this.get('toUpdate'));
+    }
   },
 
   // Observes value and update parts values when there was a change
@@ -197,13 +206,13 @@ export default Ember.Component.extend(InputMixin, {
 
     // triggered after clicking minus button
     minus: function() {
-      this.update(-1, this.get('toUpdate'));
+      this.update(-1, this.get('_toUpdate'));
       this.set('value', this.getString());
     },
 
     // triggered after clicking plus button
     plus: function() {
-      this.update(1, this.get('toUpdate'));
+      this.update(1, this.get('_toUpdate'));
       this.set('value', this.getString());
     }
   }
