@@ -71,7 +71,8 @@ Time component creates an input field with time value. There are also two button
 
 Required attributes:
 * value - a string value that will be changed by clicking the buttons,  
-* toUpdate - which number should be updated with buttons, default is "ss" - seconds,  
+* toUpdate - which number should be updated with buttons, for example "ss" for seconds. If no number is set it will look
+for caret position in input field to determine what to update.  
 * format - what should be visible. Default is: "hh:mm:ss". hh - is an hour in 24h format, mm - minutes, ss -seconds.
 
 To overwrite basic styles in your application stylesheet please use:  

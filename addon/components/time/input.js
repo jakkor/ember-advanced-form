@@ -38,7 +38,7 @@ export default Ember.TextField.extend({
   },
 
   /**
-   * Click action checkes if toUpdate has been set.
+   * Click action checks if toUpdate has been set.
    * If not we check the caret position to determine which number should be updated when "+" or "-" are clicked.
    */
   click: function() {
