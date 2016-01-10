@@ -71,9 +71,12 @@ Time component creates an input field with time value. There are also two button
 
 Required attributes:
 * value - a string value that will be changed by clicking the buttons,  
-* toUpdate - which number should be updated with buttons, for example "ss" for seconds. If no number is set it will look
-for caret position in input field to determine what to update.  
 * format - what should be visible. Default is: "hh:mm:ss". hh - is an hour in 24h format, mm - minutes, ss -seconds.
+
+Optional attributes:  
+* toUpdate - which number should be updated with buttons, for example "ss" for seconds. If this option will not be set it will look for caret position in input field to determine what to update.  
+* max - max values. For format "hh:mm:ss" we can set for example "--:70:70".  
+"--" means that there is no max value.  
 
 To overwrite basic styles in your application stylesheet please use:  
 * .advanced-forms.time - form main div,  

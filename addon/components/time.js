@@ -13,6 +13,10 @@ export default Ember.Component.extend(InputMixin, {
 
   format: "hh:mm:ss",
 
+  // Max values.
+  //
+  // For example if format is: "hh:mm"
+  // Max values should be: "24:59" or any other numbers
   max: null,
 
   toUpdate: null,
@@ -37,8 +41,9 @@ export default Ember.Component.extend(InputMixin, {
     var defaultParts = this.getDefaultParts();
     this.updateFormatData(defaultParts);
     this._super();
-    this.prepareParts();
     this.prepareMaxValues();
+    this.prepareParts();
+
     // Set first part as default to update key
     var partsArray = Object.keys(this.get('parts'));
     this.set('_toUpdate', partsArray[partsArray.length - 1]);
@@ -91,9 +96,22 @@ export default Ember.Component.extend(InputMixin, {
    */
   getParts: function(value, valuesArray) {
     var parts = this.get('parts');
-    Object.keys(parts).forEach(function(part, index){
+    var partsChanged = false;
+
+    // Updates parts value attribute from set value
+    // If set value is wrong it should correct it. For example set value to max value
+    Object.keys(parts).forEach(function(part, index) {
       parts[part].value = valuesArray[index];
+      if (parts[part].max !== "--" && parseInt(valuesArray[index]) > parseInt(parts[part].max)) {
+        partsChanged = true;
+        parts[part].value = parts[part].max;
+      }
     });
+
+    // if parts has been changed update value
+    if (partsChanged === true) {
+      this.set('value', this.getString());
+    }
 
     return parts;
   },
