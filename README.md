@@ -36,6 +36,7 @@ module.exports = function(defaults) {
 ## Available Components
 
 * [Integer Component](#integer_component)
+* [Float Component](#float_component)
 * [Time Component](#time_component)
 * [Select Component](#select_component)
 * [Simple Select Component](#simple_select_component)
@@ -46,15 +47,15 @@ module.exports = function(defaults) {
 
 {{advanced-form/integer min=3 max=12 value=5}}
 
-Integer component creates an input element with two buttons: "+" and "-".
+Integer component creates an input element with two buttons: "+" and "-".  
 
-Required attributes:
-* value - an integer value that will be changed by clicking the buttons
-* min - integer minimum value allowed in this input
-* max - integer maximum value allowed in this input
+Required attributes:  
+* value - an integer value that will be changed by clicking the buttons.  
 
 Optional attributes:  
-* onChange - action that is send by sendAction when value changes. It sends also the new value to this action.
+* onChange - action that is send by sendAction when value changes. It sends also the new value to this action,  
+* min - integer minimum value allowed in this input,  
+* max - integer maximum value allowed in this input.  
 
 To overwrite basic styles in your application stylesheet please use:  
 * .advanced-forms.integer - form main div,  
@@ -62,6 +63,30 @@ To overwrite basic styles in your application stylesheet please use:
 * .advanced-forms.integer button.plus - for plus button,  
 * .advanced-forms.integer button.minus - for minus button,  
 * .advanced-forms.integer input - for the input field in the middle.  
+
+<a name="float_component"></a>__Float Component__  
+
+{{advanced-form/float min=3.050 max=12.500 value=5.000 precision=3 step=0.050}}  
+
+Float component creates an input element with two buttons: "+" and "-".  
+
+Required attributes:  
+* value - a float value that will be changed by clicking the buttons.  
+
+Optional attributes:  
+* onChange - action that is send by sendAction when value changes. It sends also the new value to this action.
+* min - float minimum value allowed in this input,  
+* max - float maximum value allowed in this input,  
+* precision - default is "2" which means that number will have 2 decimal digits,  
+* step - how much the value should change. For example 0.5.  
+
+To overwrite basic styles in your application stylesheet please use:  
+* .advanced-forms.float - form main div,  
+* .advanced-forms.float button - for both buttons,  
+* .advanced-forms.flo
+at button.plus - for plus button,  
+* .advanced-forms.float button.minus - for minus button,  
+* .advanced-forms.float input - for the input field in the middle.  
 
 <a name="time_component"></a> __Time Component__  
 
