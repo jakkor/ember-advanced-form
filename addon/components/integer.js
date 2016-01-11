@@ -26,6 +26,7 @@ export default Ember.Component.extend(InputMixin, {
   layout: layout,
   attributeBindigns: ['value'],
   classNames: ['advanced-form', 'integer', 'plusminus'],
+  defaultValue: 0,
 
   // Value observer. Run check value if value has been changed in any way
   valueObserver: function() {
@@ -42,7 +43,7 @@ export default Ember.Component.extend(InputMixin, {
 
     // If value is NaN it should be set as 0
     if (isNaN(value)) {
-      value = 0;
+      value = this.get('defaultValue');
     }
 
     // If min is defined and value is less than min it should be set as min
