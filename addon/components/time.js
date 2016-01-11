@@ -13,7 +13,13 @@ export default Ember.Component.extend(InputMixin, {
 
   format: "hh:mm:ss",
 
-  toUpdate: "hh",
+  // Max values.
+  //
+  // For example if format is: "hh:mm"
+  // Max values should be: "24:59" or any other numbers
+  max: null,
+
+  toUpdate: null,
 
   /**************
   /* Private stuff
@@ -23,6 +29,7 @@ export default Ember.Component.extend(InputMixin, {
   attributeBindigns: ['value'],
   classNames: ['advanced-form', 'time', 'plusminus'],
   time: null,
+  _toUpdate: null,
 
   regexpTest: null,
   regexpMatch: null,
@@ -34,7 +41,17 @@ export default Ember.Component.extend(InputMixin, {
     var defaultParts = this.getDefaultParts();
     this.updateFormatData(defaultParts);
     this._super();
+    this.prepareMaxValues();
     this.prepareParts();
+
+    // Set first part as default to update key
+    var partsArray = Object.keys(this.get('parts'));
+    this.set('_toUpdate', partsArray[partsArray.length - 1]);
+
+    // if toUpdate value was there use it as update key instead of the default one
+    if (this.get('toUpdate') !== null) {
+      this.set('_toUpdate', this.get('toUpdate'));
+    }
   },
 
   // Observes value and update parts values when there was a change
@@ -42,6 +59,24 @@ export default Ember.Component.extend(InputMixin, {
     this.prepareParts();
   }.observes('value'),
 
+  /**
+   * Check if there are some max values set and update them in specific parts.
+   */
+  prepareMaxValues: function() {
+    var maxString = this.get('max');
+
+    if (maxString === null) {
+      return;
+    }
+
+    var maxArray = maxString.match(this.get('regexpMatch'));
+    var parts = this.get('parts');
+    Object.keys(parts).forEach(function(part, index) {
+      if (typeof maxArray[(index + 1)] !== "undefined") {
+        parts[part].max = maxArray[(index + 1)];
+      }
+    });
+  },
 
   // Updates values if value is value is valid, or set as default
   prepareParts: function() {
@@ -61,9 +96,22 @@ export default Ember.Component.extend(InputMixin, {
    */
   getParts: function(value, valuesArray) {
     var parts = this.get('parts');
-    Object.keys(parts).forEach(function(part, index){
+    var partsChanged = false;
+
+    // Updates parts value attribute from set value
+    // If set value is wrong it should correct it. For example set value to max value
+    Object.keys(parts).forEach(function(part, index) {
       parts[part].value = valuesArray[index];
+      if (parts[part].max !== "--" && parseInt(valuesArray[index]) > parseInt(parts[part].max)) {
+        partsChanged = true;
+        parts[part].value = parts[part].max;
+      }
     });
+
+    // if parts has been changed update value
+    if (partsChanged === true) {
+      this.set('value', this.getString());
+    }
 
     return parts;
   },
@@ -108,12 +156,13 @@ export default Ember.Component.extend(InputMixin, {
 
   _addTo: function(summand, index, parts) {
     var key = Object.keys(parts)[index];
-    if (parts[key].value >= parts[key].max) {
+    if (parts[key].max !== "--" && parts[key].value >= parts[key].max) {
 
       // Return if it's the last number
       if (index <= 0) {
         return false;
       }
+
       if ((parts = this._addTo(summand, (index-1), parts)) !== false) {
         parts[key].value = parts[key].min;
         return parts;
@@ -121,7 +170,7 @@ export default Ember.Component.extend(InputMixin, {
       return false;
     }
 
-    if (parts[key].value < parts[key].max) {
+    if (parts[key].max === "--" || parts[key].value < parts[key].max) {
       parts[key].value = parseInt(parts[key].value) + parseInt(summand);
       return parts;
     }
@@ -167,24 +216,27 @@ export default Ember.Component.extend(InputMixin, {
     return {
       hh: {
         //regexp: "([0-1]?[0-9])|([2][0-3])",
-        regexp: "([01]\\d|2[0-3])",
-        match: "[0-9]{2}",
+        //regexp: "([01]\\d|2[0-3])",
+        regexp: "([0-9]+)",
+        match: "[0-9\-]+",
         default: "00",
         value: "00",
         max: "23",
         min: "00",
       },
       mm: {
-        regexp: "[0-5]?[0-9]",
-        match: "[0-9]{2}",
+        //regexp: "[0-5]?[0-9]",
+        regexp: "([0-9]+)",
+        match: "[0-9\-]+",
         default: "00",
         value: "00",
         max: "59",
         min: "00",
       },
       ss: {
-        regexp: "[0-5]?[0-9]",
-        match: "[0-9]{2}",
+        //regexp: "[0-5]?[0-9]",
+        regexp: "([0-9]+)",
+        match: "[0-9\-]+",
         default: "00",
         value: "00",
         max: "59",
@@ -197,13 +249,13 @@ export default Ember.Component.extend(InputMixin, {
 
     // triggered after clicking minus button
     minus: function() {
-      this.update(-1, this.get('toUpdate'));
+      this.update(-1, this.get('_toUpdate'));
       this.set('value', this.getString());
     },
 
     // triggered after clicking plus button
     plus: function() {
-      this.update(1, this.get('toUpdate'));
+      this.update(1, this.get('_toUpdate'));
       this.set('value', this.getString());
     }
   }

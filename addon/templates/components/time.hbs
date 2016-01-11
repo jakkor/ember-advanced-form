@@ -1,7 +1,7 @@
 <button {{action 'plus'}} class="plus"></button>
 <button {{action 'minus'}} class="minus"></button>
 {{#if editable}}
-  {{input type="text" value=value}}
+  {{advanced-form/time/input value=value}}
 {{else}}
-  {{input type="text" value=value disabled="disabled"}}
+  {{advanced-form/time/input value=value disabled=disabled}}
 {{/if}}
