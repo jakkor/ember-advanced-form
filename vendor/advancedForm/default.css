@@ -125,3 +125,31 @@
 }
 
 .advanced-form.select ul:after { clear: both; }
+
+/****************
+* Multi-select
+*****************/
+.advanced-form.multi-select {
+  height: 100px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  border: 1px solid #000;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.advanced-form.multi-select ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.advanced-form.multi-select ul li {
+  display: block;
+  position: relative;
+  height: 25px;
+  line-height: 25px;
+  margin: 0;
+  cursor: pointer;
+}

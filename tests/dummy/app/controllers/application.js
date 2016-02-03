@@ -3,7 +3,7 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
 
   countryList: [
-    'Poland', 'Germany', 'United Kingdom', 'Unated States',
+    'Poland', 'Germany', 'United Kingdom', 'Unated States', 'Ireland', 'Italy'
   ],
 
   actions: {
