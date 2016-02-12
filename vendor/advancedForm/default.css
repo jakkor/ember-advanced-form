@@ -118,10 +118,4 @@
   border-top: 0;
 }
 
-.advanced-form.select ul:before,
-.select ul:after {
-  content: " "; /* 1 */
-  display: table; /* 2 */
-}
-
 .advanced-form.select ul:after { clear: both; }
