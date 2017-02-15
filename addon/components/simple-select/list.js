@@ -10,14 +10,12 @@ export default Ember.Component.extend({
 
   list: null,
 
-  isActiveObserver: function() {
-    this.set('isActive', this.get('parentView.isActive'));
-  }.observes('parentView.isActive'),
+  selectedChanged: 'selectedChanged',
 
   actions: {
 
     select: function(element) {
-      this.get('parentView').send('selectedChanged', element);
+      this.sendAction('selectedChanged', element);
     }
 
   }
